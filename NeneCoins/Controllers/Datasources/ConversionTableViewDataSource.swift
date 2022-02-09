@@ -18,7 +18,6 @@ class ConversionTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func invertData() {
-        
         let previousFrom = fromCoin
         fromCoin = toCoin
         toCoin = previousFrom

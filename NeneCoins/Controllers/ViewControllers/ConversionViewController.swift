@@ -52,7 +52,6 @@ extension ConversionViewController: ConversionViewDelegate {
     func didTapInvert() {
         dataSource.invertData()
         contentView.updateCoinsTable()
-        //ATUALIZAR TELA E DATASOURCE DA TABLE1VIEW
     }
     
     func didType(_ content: String) {
@@ -66,10 +65,16 @@ extension ConversionViewController: ConversionViewDelegate {
 
 extension ConversionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectionViewController = SelectionViewController()
+        let selectionViewController = SelectionViewController(title: selectionViewTitle(for: indexPath))
         navigationController?.pushViewController(selectionViewController, animated: true)
     }
     
-    
-}
+    private func selectionViewTitle(for indexPath: IndexPath) -> String {
+        if indexPath.row == 0 {
+            return "From"
+        } else {
+            return "To"
+        }
+    }
+ }
 
