@@ -9,15 +9,21 @@ import Foundation
 import UIKit
 
 class SelectionTableViewDataSource: NSObject, UITableViewDataSource {
+    let data: [Coin]
+    
+    init(coins: [Coin]) {
+        self.data = coins
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SelectionView.cellIdentifier, for: indexPath)
         
         var content = cell.defaultContentConfiguration()
-        content.text = "IMPLEMENTAR!!!"
+        content.text = data[indexPath.row].name
         cell.contentConfiguration = content
         cell.accessoryType = .disclosureIndicator
         

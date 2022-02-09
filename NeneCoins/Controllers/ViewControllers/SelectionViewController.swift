@@ -11,9 +11,11 @@ class SelectionViewController: UIViewController {
     private var contentView: SelectionView
     private var dataSource: SelectionTableViewDataSource
     
+    weak var delegate: SelectionViewControllerDelegate?
+    
     init(title: String) {
         self.contentView = SelectionView()
-        self.dataSource = SelectionTableViewDataSource()
+        self.dataSource = SelectionTableViewDataSource(coins: CoinRepository.shared.fetchAllCoins())
         super.init(nibName: nil, bundle: nil)
         self.title = title
     }
@@ -28,11 +30,18 @@ class SelectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentView.setupViewBindings(dataSource: dataSource)
+        contentView.setupViewBindings(dataSource: dataSource, tableViewDelegate: self)
     }
     
     private func setupNavigationStyle() {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
+}
+
+extension SelectionViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelect(coin: dataSource.data[indexPath.row])
+        navigationController?.popViewController(animated: true)
+    }
 }
