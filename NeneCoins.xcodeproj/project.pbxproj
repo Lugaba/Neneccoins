@@ -19,6 +19,7 @@
 		5BF74DDE27B1E78900E60AA4 /* CoinRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF74DDD27B1E78900E60AA4 /* CoinRepository.swift */; };
 		5BF74DE127B1E86E00E60AA4 /* ConversionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF74DE027B1E86E00E60AA4 /* ConversionView.swift */; };
 		5BF74DE527B1E8A800E60AA4 /* ConversionTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF74DE427B1E8A800E60AA4 /* ConversionTableViewDataSource.swift */; };
+		E9F77C9B27B44BD900CF9714 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F77C9A27B44BD900CF9714 /* SelectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		5BF74DDD27B1E78900E60AA4 /* CoinRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinRepository.swift; sourceTree = "<group>"; };
 		5BF74DE027B1E86E00E60AA4 /* ConversionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionView.swift; sourceTree = "<group>"; };
 		5BF74DE427B1E8A800E60AA4 /* ConversionTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionTableViewDataSource.swift; sourceTree = "<group>"; };
+		E9F77C9A27B44BD900CF9714 /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				5BF74DC727B1E5FC00E60AA4 /* ConversionViewController.swift */,
+				E9F77C9A27B44BD900CF9714 /* SelectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				5BF74DC427B1E5FC00E60AA4 /* AppDelegate.swift in Sources */,
 				5BF74DDE27B1E78900E60AA4 /* CoinRepository.swift in Sources */,
 				5BF74DDC27B1E75400E60AA4 /* Coin.swift in Sources */,
+				E9F77C9B27B44BD900CF9714 /* SelectionViewController.swift in Sources */,
 				5BF74DE527B1E8A800E60AA4 /* ConversionTableViewDataSource.swift in Sources */,
 				5BF74DC627B1E5FC00E60AA4 /* SceneDelegate.swift in Sources */,
 				5BC3A0FD27B29C2E00613145 /* SelectionTableViewDataSource.swift in Sources */,

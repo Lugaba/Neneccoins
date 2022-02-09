@@ -8,28 +8,20 @@
 import UIKit
 
 class ConversionTableViewDataSource: NSObject, UITableViewDataSource {
-    private var data: [Coin] = []
     
-    var toCoin: Coin {
-        data[0]
-    }
+    var toCoin: Coin
+    var fromCoin: Coin
     
-    var fromCoin: Coin {
-        data[1]
-    }
-    
-    func startUp(with coins: [Coin]) {
-        data = coins
+    init(fromCoin: Coin, toCoin: Coin) {
+        self.fromCoin = fromCoin
+        self.toCoin = toCoin
     }
     
     func invertData() {
-        if data.count < 2 {
-            return
-        }
         
-        let previousTo = data[0]
-        data[0] = data[1]
-        data[1] = previousTo
+        let previousFrom = fromCoin
+        fromCoin = toCoin
+        toCoin = previousFrom
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,11 +32,19 @@ class ConversionTableViewDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ConversionView.cellIdentifier, for: indexPath)
         
         var content = cell.defaultContentConfiguration()
-        content.text = data[indexPath.row].name
+        content.text = coin(for: indexPath)
         cell.contentConfiguration = content
         cell.accessoryType = .disclosureIndicator
         
         cell.backgroundColor = .secondarySystemBackground
         return cell
+    }
+    
+    private func coin(for indexPath: IndexPath) -> String {
+        if indexPath.row == 0  {
+            return "From: \(fromCoin.name)"
+        } else {
+            return "To: \(toCoin.name)"
+        }
     }
 }
