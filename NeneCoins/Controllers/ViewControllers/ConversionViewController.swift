@@ -31,7 +31,13 @@ class ConversionViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationStyle()
         contentView.setupViewBindings(dataSource: dataSource, tableViewDelegate: self)
+        setupViewInitialState()
         contentView.delegate = self
+    }
+    
+    private func setupViewInitialState() {
+        contentView.updateInputLabel(with: dataSource.fromCoin.abbreviation)
+        contentView.updateResultLabel(with: 0, for: dataSource.toCoin)
     }
     
     private func setupNavigationStyle() {
