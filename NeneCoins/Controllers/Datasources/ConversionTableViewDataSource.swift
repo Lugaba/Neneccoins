@@ -8,7 +8,6 @@
 import UIKit
 
 class ConversionTableViewDataSource: NSObject, UITableViewDataSource {
-    
     var toCoin: Coin
     var fromCoin: Coin
     
@@ -21,6 +20,14 @@ class ConversionTableViewDataSource: NSObject, UITableViewDataSource {
         let previousFrom = fromCoin
         fromCoin = toCoin
         toCoin = previousFrom
+    }
+    
+    func changeCoin(to coin: Coin, at indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            fromCoin = coin
+        } else {
+            toCoin = coin
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

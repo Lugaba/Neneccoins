@@ -75,6 +75,7 @@ extension ConversionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectionViewController = SelectionViewController(title: selectionViewTitle(for: indexPath))
         selectionViewController.delegate = self
+        selectedIndexPath = indexPath
         navigationController?.pushViewController(selectionViewController, animated: true)
     }
     
@@ -89,6 +90,10 @@ extension ConversionViewController: UITableViewDelegate {
 
 extension ConversionViewController: SelectionViewControllerDelegate {
     func didSelect(coin: Coin) {
-        print("Coin \(coin.name)")
+        guard let indexPath = selectedIndexPath else { return }
+        dataSource.changeCoin(to: coin, at: indexPath)
+        selectedIndexPath = nil
+        
+        contentView.updateCoinsTable()
     }
 }
